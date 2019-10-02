@@ -1,0 +1,35 @@
+title = "login"
+url = "/login"
+is_hidden = 0
+layout = "default"
+
+[account]
+redirect = "blog/post"
+paramCode = "code"
+forceSecure = 0
+==
+
+<div class="signin-container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to Flat App"/>
+                            <h4>Welcome to
+                                <small>Flat App</small>
+                            </h4>
+                        </div>
+                        {% component 'account' %}
+                        <a class="signin-link" href="#">Lost your password?</a>
+                        <a class="signin-link" href="{{ 'samples/register'|page }}">Create an account</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
