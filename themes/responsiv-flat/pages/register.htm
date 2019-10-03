@@ -1,0 +1,49 @@
+title = "register"
+url = "/register"
+layout = "default"
+is_hidden = 0
+
+[customLogin]
+redirect = "account"
+paramCode = "code"
+forceSecure = 0
+==
+<div class="signin-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/october.png'|theme }}" alt="Welcome to Flat App"/>
+                        </div>
+                        <div class="signin-form">
+                            {% component 'customLogin' %}
+                            {% if not user %}
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!--<button type="button" id="login-register" class="btn btn-block btn-default"  onclick="switchVisible();">Create an account</button>-->
+                                    <!--<button type="button" id="login-register" class="btn btn-block btn-default"  onclick="switchVisible();">Create an account</button>-->
+                                    <a  type="button" href="{{ url('signin') }}" class="btn btn-default">Already have an account? Login</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var registerForm = document.querySelector('[data-request="onRegister"]');
+        var signinForm = document.querySelector('[data-request="onSignin"]');
+        if (registerForm && signinForm) {
+            registerForm.parentElement.style.display = 'block';
+            signinForm.parentElement.style.display = 'none';
+        }
+    })();
+</script>

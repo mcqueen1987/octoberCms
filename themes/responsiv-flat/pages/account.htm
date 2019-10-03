@@ -1,0 +1,79 @@
+title = "Account"
+url = "/account"
+layout = "default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
+<div class="signin-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/october.png'|theme }}" alt="Welcome to Flat App"/>
+                        </div>
+                        <div class="signin-form">
+                            {% if not user %}
+                            <p>You haven not logged in yet, please login before check your account!</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="{{ url('signin') }}" class="btn btn-default pull-right">Login</a>
+                                </div>
+                            </div>
+                            {% else %}
+                                <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="team-member text-center">
+                                        <div class="info">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-1">
+                                                        Name:
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        {{ user.name }}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-1">
+                                                        Surname:
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        {{ user.surname }}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-1">
+                                                        Email:
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        {{ user.email }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-1">
+                                                        Phone:
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        {{ user.phone }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

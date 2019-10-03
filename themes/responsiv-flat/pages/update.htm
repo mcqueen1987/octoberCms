@@ -1,0 +1,49 @@
+title = "update"
+url = "/update"
+is_hidden = 0
+layout = "default"
+
+[customLogin]
+redirect = "account"
+paramCode = "code"
+forceSecure = 0
+==
+<div class="signin-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/october.png'|theme }}" alt="Welcome to Flat App"/>
+                        </div>
+                        <div class="signin-form">
+                            {% if not user %}
+                                <p>You haven not logged in yet, please login before update your account!</p>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="{{ url('signin') }}" class="btn btn-default pull-right">Login</a>
+                                    </div>
+                                </div>
+                            {% else %}
+                                {% component 'customLogin' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var updateForm = document.querySelector('.update-form');
+        var logoutForm = document.querySelector('.logout-form');
+        if (updateForm && logoutForm) {
+            updateForm.style.display = 'block';
+            logoutForm.style.display = 'none';
+        }
+    })();
+</script>

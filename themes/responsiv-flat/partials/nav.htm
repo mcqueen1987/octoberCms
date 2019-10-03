@@ -1,47 +1,31 @@
+[customLogin]
+redirect = "account"
+paramCode = "code"
+forceSecure = 0
+==
 
 {# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
-{% set
-    links = {
-        'home': ['home', 'Home'],
-        'pages': {
-            name: 'Pages',
-            sublinks: {
-                'about':         ['samples/about', 'About Us'],
-                'contact':       ['samples/contact', 'Contact Us'],
-                'pricing-table': ['samples/pricing-table', 'Pricing Table'],
-                'services':      ['samples/services', 'Services'],
-                'signin':        ['samples/signin', 'Sign In'],
-                'register':      ['samples/register', 'Register'],
-                'error':         ['error', 'Error Page'],
-                '404':           ['404', '404 Page'],
+{% if user %}
+    {% set
+        links = {
+            'pages': {
+                name: 'Pages',
+                sublinks: {
+                    'account':        ['account', 'Account'],
+                    'update':         ['update', 'Update'],
+                    'logout':         ['logout', 'Logout'],
+                },
             },
-        },
-        'portfolio': {
-            name: 'Portfolio',
-            sublinks: {
-                'portfolio': ['portfolio/portfolio', 'Portfolio'],
-                'project': ['portfolio/project', 'Project'],
-            },
-        },
-        'blog': {
-            name: 'Blog',
-            sublinks: {
-                'blog': ['blog/blog', 'Blog'],
-                'post': ['blog/post', 'Blog Post'],
-            },
-        },
-        'shop': {
-            name: 'Shop',
-            sublinks: {
-                'shop': ['shop/shop', 'Shop'],
-                'product': ['shop/product', 'Product'],
-                'cart': ['shop/cart', 'Cart'],
-            },
-        },
-        'ui-elements': ['ui-elements', 'UI Elements'],
-
-    }
-%}
+        }
+    %}
+{% else %}
+    {% set
+        links = {
+            'signin': ['signin', 'Sign In'],
+            'register': ['register', 'Register'],
+        }
+    %}
+{% endif %}
 
 {% macro render_menu(links) %}
     {% import _self as subnav %}
@@ -75,7 +59,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="fa fa-bars"></span>
             </button>
-            <a class="navbar-brand" href="{{ 'home'|page }}">Flat</a>
+            <a class="navbar-brand" href="{{ 'home'|page }}">XX App</a>
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
             <ul class="nav navbar-nav navbar-right">

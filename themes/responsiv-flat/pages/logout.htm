@@ -1,0 +1,54 @@
+title = "logout"
+url = "/logout"
+layout = "default"
+is_hidden = 0
+
+[customLogin]
+redirect = "home"
+paramCode = "code"
+forceSecure = 0
+==
+<div class="signin-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/october.png'|theme }}" alt="Welcome to Flat App"/>
+                        </div>
+                        <div class="signin-form">
+                            {% if not user %}
+                            <p>You have logged out!</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="{{ url('signin') }}" class="btn btn-default pull-right">Login</a>
+                                </div>
+                            </div>
+                            {% else %}
+                            <p>Confirm to log out</p>
+                            <hr>
+                            <div class="row">
+                                {% component 'customLogin' %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    (function() {
+        var updateForm = document.querySelector('.update-form');
+        var logoutForm = document.querySelector('.logout-form');
+        if (updateForm && logoutForm) {
+            updateForm.style.display = 'none';
+            logoutForm.style.display = 'block';
+        }
+    })();
+</script>

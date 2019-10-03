@@ -1,4 +1,8 @@
 description = "Default layout"
+
+[account]
+paramCode = "code"
+forceSecure = 0
 ==
 <!DOCTYPE html>
 <html>
@@ -36,11 +40,6 @@ description = "Default layout"
         <div id="layout-content">
             {% page %}
         </div>
-
-        <!-- Mailing List -->
-        <section id="layout-subscribe" class="subscribe-form">
-            {% partial "subscribe" %}
-        </section>
 
         <!-- Footer -->
         <footer id="layout-footer">
